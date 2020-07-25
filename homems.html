@@ -101,16 +101,13 @@
   font-size:18px;
   background-color:orangered;
   color:#fff;
-  //border:3px solid #4A6D8B;
   border:0;
   cursor:pointer;
   height:50px;
   width:200px;
   box-shadow:0 2px 0 0 rgba(0,0,0,0.3);
   transition:all 0.3s ease;
-  &:hover{
-    border-color:darken(#4A6D8B, 7%);
-  }
+
 }
 
 .btn-contract{
@@ -123,16 +120,7 @@
   font-size:9px;
   overflow:hidden;
   position:relative;
-  &:after{
-    content:"";
-    position:absolute;  
-    top:0;
-    left:0;
-    background-color:darken(#4A6D8B, 7%);
-    height:100%;
-    width:0%;
-    animation: expand100 2s normal backwards;
-  }
+  
 }
 
 @keyframes expand100{
@@ -292,8 +280,8 @@
         <div class="demo">
             <div class="counter">
                 <div class="counter-content">
-                    <i class="fas fa-hourglass-half"></i>
-                        <span class="counter-value">20</span>
+                    <i class="fas fa-hourglass-half" ></i>
+                        <div class="counter-value" data-target="20">0</div>
                         <h3 class="title">
                             Hours of mentoring received per entrepreneur on average
                         </h3>
@@ -302,7 +290,7 @@
             <div class="counter">
                 <div class="counter-content">
                     <i class="fas fa-heartbeat"></i>
-                            <span class="counter-value">83</span>
+                            <div class="counter-value" data-target="83">0</div>
                             <h3 class="title">
                                 Survival rate for early-stage mentored entrepreneurs
                             </h3>
@@ -311,7 +299,7 @@
             <div class="counter">
                 <div class="counter-content">
                                 <i class="fas fa-heart"></i>
-                                <span class="counter-value">2</span>
+                                <div class="counter-value" data-target="2">0</div>
                                 <h3 class="title">
                                     Mentored entrepreneurs create twice as many new jobs as solo entrepreneurs
                                 </h3>
@@ -321,16 +309,16 @@
             <div class="counter">
                 <div class="counter-content">
                                     <i class="glyphicon glyphicon-thumbs-up"></i>
-                                    <span class="counter-value">66</span>
+                                    <div class="counter-value" data-target="66">0</div>
                                     <h3 class="title">
                                         Percent of entrepreneurs do not have access to any other business development resources outside of tostartup
                                     </h3>
                 </div>
             </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(".counter-value").counterUp({delay: 10});
 
-</script>
+</script> -->
 
 </div>
 <div style="background-color: black; color: white; text-align: center;">
@@ -357,5 +345,26 @@
     <p>Connecting founders and marketers with battle-hardened mentors</p>
 <p>  © 2020 Growth Tonic LLC. All rights reserved. | Privacy Policy | Terms of Service</p>
   </div>
+  <script >
+    const counters = document.querySelectorAll('.counter-value');
+    const speed = 1;
+    
+    counters.forEach(counter=>{
+        const updateCount = () =>{
+            const target = counter.getAttribute('data-target');
+            const count = counter.innerText;
+
+            const inc = target/speed;
+
+            if(count<target){
+                counter.innerText=count+inc;
+                // setTimeout(updateCount, 10000);
+            }else{
+                count.innerText=target;
+            }
+        }
+        updateCount();
+    })
+</script>
     </body>
 </html>
