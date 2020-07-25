@@ -4,10 +4,11 @@ Mentoring and guidance are very critical for early stage startups and presently,
 
 ## Languages Used
 * HTML 
-* HTML 
-* HTML 
-* HTML 
-* HTML 
+* CSS 
+* PHP
+* BOOTSTRAP 
+* JavaScript
+* JQUERY
 
 ## Note
 PHP language is used as a backend language for the login and register files in order to store the details of the users. In order to check the working of php files, run the php file on your localhost using xampp, mamp, ampps or any other similar tools.
